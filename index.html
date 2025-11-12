@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Entomofauna-BIOTA</title>
+    <link rel="shortcut icon" type="imagex/png" href="Design sem nome (16).png">
+    <link rel="manifest" href="manifest.json">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding-top: 60px;
+        }
+
+        header {
+            width: 100%;
+            height: 60px;
+            background-color: #087219;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .main-content {
+            margin-top: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .app-container {
+            max-width: 400px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input, textarea, select, button {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            background: #087219;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #087219;
+        }
+
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .visualizacao-dados {
+            margin-top: 20px;
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #087219;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Registro de Entomofauna-BIOTA</h1>
+    </header>
+
+    <div class="main-content">
+        <div class="app-container">
+            <form id="pragaForm">
+                <div class="form-group">
+                    <label for="nomePragueiro">Nome do Avaliador:</label>
+                    <input type="text" id="nomePragueiro" placeholder="Digite seu nome">
+                </div>
+                <div class="form-group">
+                    <label for="Propriedade">Propriedade:</label>
+                    <select id="propriedade">
+                        <option value="Polenghi">Angatuba_Polenghi_FazendaCarolina</option>
+                        <option value="Polenghi_Jacaranda">Angatuba_Polenghi_Vacas de Leite Jacaranda</option>
+                        <option value="Buri_UFSCar">Buri_UFSCar</option>
+                        <option value="Itarare_AnaKarina1">Itarare_AnaKarina1</option>
+                        <option value="Itarare_AnaKarina2">Itarare_AnaKarina2</option>
+                        <option value="Itarare_Italo1">Itarare_Italo1</option>
+                        <option value="Itarare_Italo2">Itarare_Italo2</option>
+                        <option value="Taquarivai_David">Taquarivai_David</option>
+                        <option value="CMA_JoaoAgapto">CMA_JoaoAgapto</option>
+                        <option value="CMA_MarcosMilani">CMA_MarcosMilani</option>
+                    </select>
+                </div>
+                 <div class="form-group">
+                    <label for="cultura">Cultura:</label>
+                    <select id="cultura">
+                        <option value="soja">Soja</option>
+                        <option value="bordamata">Borda da Mata</option>
+                         <option value="interiormata">Interior da Mata</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="estagio">Estagio da Cultura</label>
+                    <input type="text" id="estagioCultura" placeholder="Digite o estágio da cultura">
+                </div>
+                <div class="form-group">
+                    <label for="transecto">Transecto:</label>
+                    <input type="text" id="transecto" placeholder="Digite o transeto">
+                </div>
+                <div class="form-group">
+                    <label for="ponto">Ponto:</label>
+                    <input type="text" id="ponto" placeholder="Digite o ponto">
+                </div>
+                
+                <div class="form-group">
+                    <label for="tecnica">Técnica utilizada:</label>
+                    <select id="tecnica">
+                        <option value="bandeja">Bandeja</option>
+                        <option value="panobatido">Pano de Batida</option>
+                         <option value="guardachuva">Guarda-chuva Entomológico</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="nomePraga">Artrópode/Praga:</label>
+                    <select id="nomePraga">
+                        <optgroup label="COLEÓPTEROS">
+                            <option value="Diabrotica_speciosa">Diabrotica_speciosa</option>
+                            <option value="Cerambicidae">Cerambicidae</option>
+                            <option value="Cantharidae">Cantharidae</option>
+                            <option value="Curculionidae">Curculionidae</option>
+                            <option value="Coccinellidae">Coccinellidae</option>
+                            <option value="Cerotoma">Cerotoma</option>
+                        </optgroup>
+                        <optgroup label="LEPIDÓPTEROS">
+                            <option value="Chrysodeixis_includens">Chrysodeixis_includens</option>
+                            <option value="Rachiplusia_nu">Rachiplusia_nu</option>
+                            <option value="Spodoptera_frugiperda">Spodoptera_frugiperda</option>
+                            <option value="Spodoptera_cosmioides">Spodoptera_cosmioides</option>
+                            <option value="Anticarsia_gemmatalis">Anticarsia_gemmatalis</option>
+                        </optgroup>
+                        <optgroup label="HEMÍPTEROS">
+                            <option value="Euschistus_heros">Euschistus_heros</option>
+                            <option value="Nezara_viridula">Nezara_viridula</option>
+                            <option value="Dichelops_sp">Dichelops_sp</option>
+                            <option value="Percevejo_vermelho">Percevejo_vermelho</option>
+                            <option value="Percevejo_renda">Percevejo_renda</option>
+                            <option value="Percevejo_preto_e_amarelo">Percevejo_preto_e_amarelo</option>
+                            <option value="Cigarrinha">Cigarrinha</option>
+                            <option value="Pulgao">Pulgao</option>
+                            <option value="Bemisia_sp">Bemisia_sp</option>
+                        </optgroup>
+                        <optgroup label="NEUROPTERA">
+                            <option value="Bicho_lixeiro_larva">Bicho_lixeiro_larva</option>
+                            <option value="Bicho_lixeiro_adulto">Bicho_lixeiro_adulto</option>
+                        </optgroup>
+                        <optgroup label="THYSANOPTEROS">
+                            <option value="Thripidae">Thripidae</option>
+                            <option value="Phlaeothripidae">Phlaeothripidae</option>
+                            <option value="Aelothripidae">Aelothripidae</option>
+                        </optgroup>
+                        <optgroup label="DÍPTERAS">
+                            <option value="Syrphidae">Syrphidae</option>
+                            <option value="Dolichopodidae">Dolichopodidae</option>
+                            <option value="Drosophila_sp">Drosophila_sp</option>
+                        </optgroup>
+                        <optgroup label="HIMENÓPTEROS">
+                            <option value="Formicidae">Formicidae</option>
+                            <option value="Microvespa">Microvespa</option>
+                        </optgroup>
+                        <optgroup label="ORTÓPTEROS">
+                            <option value="Grilo">Grilo</option>
+                        </optgroup>
+                        <optgroup label="DERMAPTERA">
+                            <option value="Forficulidae">Forficulidae</option>
+                        </optgroup>
+                        <option value="ARANHAS">ARANHAS</option>
+                        <option value="Outro">Outro (Especifique nas Observações)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="quantidade">Quantidade:</label>
+                    <input type="number" id="quantidade" placeholder="Digite a quantidade">
+                </div>
+                <div class="form-group">
+                    <label for="desenvolvimento">Estágio de Desenvolvimento:</label>
+                    <select id="desenvolvimento">
+                        <option value="nada">Não Identificado</option>
+                        <option value="ovo">Ovo</option>
+                        <option value="ninfa">Ninfa</option>
+                        <option value="lagarta">Lagarta</option>
+                        <option value="Adulto">Adulto</option>
+                        <option value="larva">Larva</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="observacoes">Observações:</label>
+                    <textarea id="observacoes" placeholder="Detalhes sobre a planta, artrópode ou outro"></textarea>
+                </div>
+                <button type="button" id="adicionarPraga">Adicionar Registro</button>
+            </form>
+            <button id="baixarExcel">Baixar Excel</button>
+        </div>
+        <div class="visualizacao-dados">
+            <h2>Dados Registrados</h2>
+            <table>
+                 <thead>
+                     <tr>
+                         <th>Propriedade</th>
+                         <th>Cultura</th>
+                         <th>Estagio da Cultura</th>
+                         <th>Transecto</th>
+                         <th>Ponto</th>
+                         <th>Latitude</th>
+                         <th>Longitude</th>
+                         <th>Técnica</th>
+                         <th>Artrópode</th>
+                         <th>Quantidade</th>
+                         <th>Estagio</th>
+                         <th>Observações</th>
+                         <th>Ações</th>
+                     </tr>
+                 </thead>
+
+                 <tbody id="tabelaDados"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+   <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const adicionarPragaBtn = document.getElementById('adicionarPraga');
+    const tabelaDados = document.getElementById('tabelaDados');
+    const baixarExcelBtn = document.getElementById('baixarExcel');
+
+    let dadosPragas = [];
+
+    // Função para obter a localização, retorna uma Promise
+    function obterLocalizacao() {
+        return new Promise((resolve, reject) => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const latitude = position.coords.latitude.toFixed(6);
+                        const longitude = position.coords.longitude.toFixed(6);
+                        resolve({ latitude, longitude });
+                    },
+                    (error) => {
+                        let mensagemErro = 'ERRO DE LOCALIZAÇÃO: ';
+                        switch(error.code) {
+                            case error.PERMISSION_DENIED:
+                                mensagemErro += "Permissão negada (mude as configurações do seu dispositivo/navegador).";
+                                break;
+                            case error.POSITION_UNAVAILABLE:
+                                mensagemErro += "Informação indisponível (Tente ir para um local aberto).";
+                                break;
+                            case error.TIMEOUT:
+                                mensagemErro += "Tempo limite excedido. Tente novamente.";
+                                break;
+                            default:
+                                mensagemErro += "Erro desconhecido.";
+                                break;
+                        }
+                        reject(mensagemErro);
+                    },
+                    {
+                        enableHighAccuracy: true, 
+                        timeout: 15000, 
+                        maximumAge: 0
+                    }
+                );
+            } else {
+                reject('Seu dispositivo não suporta Geolocation.');
+            }
+        });
+    }
+
+    adicionarPragaBtn.addEventListener('click', async () => {
+        // Desativa o botão para evitar cliques duplos durante a captura do GPS
+        adicionarPragaBtn.disabled = true;
+        adicionarPragaBtn.textContent = 'Capturando Localização...';
+
+        const nomePragueiro = document.getElementById('nomePragueiro').value;
+        const propriedade = document.getElementById('propriedade').value;
+        const cultura = document.getElementById('cultura').value;
+        const estagio = document.getElementById('estagioCultura').value;
+        const transecto = document.getElementById('transecto').value;
+        const ponto = document.getElementById('ponto').value;
+        const tecnica = document.getElementById('tecnica').value;
+        const nomePraga = document.getElementById('nomePraga').value;
+        const quantidade = document.getElementById('quantidade').value;
+        const desenvolvimento = document.getElementById('desenvolvimento').value;
+        const observacoes = document.getElementById('observacoes').value;
+
+        // 1. Validação dos campos normais
+        if (!nomePragueiro || !propriedade || !cultura || !estagio || !transecto|| !ponto || !tecnica || !nomePraga || !quantidade) {
+            alert('Por favor, preencha todos os campos obrigatórios.');
+            adicionarPragaBtn.disabled = false;
+            adicionarPragaBtn.textContent = 'Adicionar Registro';
+            return;
+        }
+
+        let latitude = 'N/A';
+        let longitude = 'N/A';
+        
+        // 2. Tenta obter o GPS
+        try {
+            const coords = await obterLocalizacao();
+            latitude = coords.latitude;
+            longitude = coords.longitude;
+        } catch (error) {
+            alert('Falha ao obter localização. O registro será salvo com Latitude/Longitude como N/A. Por favor, cheque suas permissões. Detalhes: ' + error);
+        }
+
+        // 3. Cria e salva o registro
+        const registro = {
+            propriedade,
+            cultura,
+            estagio,
+            transecto,
+            ponto,
+            latitude, // Adicionado
+            longitude, // Adicionado
+            tecnica,
+            nomePraga,
+            quantidade,
+            desenvolvimento,
+            observacoes,
+        };
+
+        dadosPragas.push(registro);
+        salvarDados();
+        atualizarTabela();
+        
+        // 4. Reset do formulário
+        document.getElementById('ponto').value = '';
+        document.getElementById('quantidade').value = '';
+        document.getElementById('observacoes').value = '';
+        document.getElementById('desenvolvimento').value = 'nada';
+        document.getElementById('nomePraga').value = document.getElementById('nomePraga').options[0].value; 
+        
+        // Reativa o botão
+        adicionarPragaBtn.disabled = false;
+        adicionarPragaBtn.textContent = 'Adicionar Registro';
+    });
+
+    function atualizarTabela() {
+        tabelaDados.innerHTML = '';
+        dadosPragas.forEach((registro, index) => {
+            const row = document.createElement('tr');
+
+            const valores = [
+                registro.propriedade,
+                registro.cultura,
+                registro.estagio,
+                registro.transecto,
+                registro.ponto,
+                registro.latitude, 
+                registro.longitude, 
+                registro.tecnica,
+                registro.nomePraga,
+                registro.quantidade,
+                registro.desenvolvimento,
+                registro.observacoes
+            ];
+
+            valores.forEach(value => {
+                const cell = document.createElement('td');
+                cell.textContent = value;
+                row.appendChild(cell);
+            });
+
+            const actionsCell = document.createElement('td');
+            const deleteBtn = document.createElement('button');
+            deleteBtn.textContent = 'Excluir';
+            deleteBtn.addEventListener('click', () => {
+                dadosPragas.splice(index, 1);
+                salvarDados();
+                atualizarTabela();
+            });
+            actionsCell.appendChild(deleteBtn);
+            row.appendChild(actionsCell);
+
+            tabelaDados.appendChild(row);
+        });
+    }
+
+    function salvarDados() {
+        localStorage.setItem('dadosPragas', JSON.stringify(dadosPragas));
+    }
+
+    function carregarDados() {
+        const dadosSalvos = localStorage.getItem('dadosPragas');
+        if (dadosSalvos) {
+            dadosPragas = JSON.parse(dadosSalvos);
+            atualizarTabela();
+        }
+    }
+
+    baixarExcelBtn.addEventListener('click', () => {
+        if (dadosPragas.length === 0) {
+            alert('Não há dados para exportar.');
+            return;
+        }
+
+        const dadosParaExcel = dadosPragas.map(d => ({
+            'Propriedade': d.propriedade,
+            'Cultura': d.cultura,
+            'Estagio da Cultura': d.estagio,
+            'Transecto': d.transecto,
+            'Ponto': d.ponto,
+            'Latitude': d.latitude, 
+            'Longitude': d.longitude, 
+            'Técnica': d.tecnica,
+            'Artrópode/Praga': d.nomePraga,
+            'Quantidade': d.quantidade,
+            'Estágio de Desenvolvimento': d.desenvolvimento,
+            'Observações': d.observacoes,
+        }));
+
+        const worksheet = XLSX.utils.json_to_sheet(dadosParaExcel);
+        const workbook = XLSX.utils.book_new();
+        XLSX.utils.book_append_sheet(workbook, worksheet, 'Registros Entomofauna');
+
+        XLSX.writeFile(workbook, 'registros_entomofauna_biota.xlsx');
+    });
+
+    carregarDados();
+});
+
+// Configuração PWA (Service Worker)
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+            .then((registration) => {
+                console.log('Service Worker registrado com sucesso:', registration);
+            })
+            .catch((error) => {
+                console.log('Erro ao registrar o Service Worker:', error);
+            });
+    });
+}
+
+   </script>
+</body>
+</html>
